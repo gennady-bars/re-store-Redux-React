@@ -32,4 +32,12 @@ const booksDeleted = (id) => {
         payload: id
     }
 }
-export {booksLoaded, booksRequested, booksError, booksAdded, booksDeleted}
+
+const booksIncreased = (id) => {
+    return {
+        type: 'BOOKS_INCREASED',
+        payload: id
+    }
+}
+export {booksLoaded, booksRequested, booksError, booksAdded, 
+        booksDeleted, booksIncreased}
