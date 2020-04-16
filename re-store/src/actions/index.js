@@ -19,4 +19,17 @@ const booksError = (error) => {
     }
 }
 
-export {booksLoaded, booksRequested, booksError}
+const booksAdded = (book) => {
+    return {
+        type: 'BOOKS_ADDED',
+        payload: book
+    }
+}
+
+const booksDeleted = (id) => {
+    return {
+        type: 'BOOKS_DELETED',
+        payload: id
+    }
+}
+export {booksLoaded, booksRequested, booksError, booksAdded, booksDeleted}
