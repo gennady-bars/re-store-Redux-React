@@ -39,5 +39,12 @@ const booksIncreased = (id) => {
         payload: id
     }
 }
+
+const booksDecreased = (id) => {
+    return {
+        type: 'BOOKS_DECREASED',
+        payload: id
+    }
+}
 export {booksLoaded, booksRequested, booksError, booksAdded, 
-        booksDeleted, booksIncreased}
+        booksDeleted, booksIncreased, booksDecreased}

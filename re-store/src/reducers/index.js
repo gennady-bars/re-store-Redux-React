@@ -8,7 +8,8 @@ const initialState = {
 
 const changeCartItems = (cartItems, id, price, added) => {
     let items = [...cartItems].map(item => {
-        return item.id === id? {...item, count: (added? ++item.count: --item.count), total: item.total + price}: item
+        return item.id === id? {...item, count: (added? ++item.count: --item.count), 
+            total: added? item.total + price: item.total - price}: item
     })
     return items;
 }
@@ -39,9 +40,6 @@ const reducer = (state=initialState, action) => {
         case 'BOOKS_ADDED':
             const {id, title, price} = action.payload;
             const found = state.cartItems.find(item => item.id === id);
-            // const newItems = [...state.cartItems].map(item => {
-            //     return item.id === id? {...item, count: ++item.count, total: item.total + price}: item
-            // })
             if (found) return {
                 ...state,
                 cartItems: changeCartItems(state.cartItems, id, price, true),
@@ -72,6 +70,14 @@ const reducer = (state=initialState, action) => {
                 cartItems: changeCartItems(state.cartItems, book.id, book.price, true),
                 orderTotal: state.orderTotal + book.price
             }
+        case 'BOOKS_DECREASED':
+            const decBook = state.books.find(item => item.id === action.payload)
+            return {
+                ...state,
+                cartItems: changeCartItems(state.cartItems, decBook.id, decBook.price, false),
+                orderTotal: state.orderTotal - decBook.price
+            }
+
         default:
             return state;
     }

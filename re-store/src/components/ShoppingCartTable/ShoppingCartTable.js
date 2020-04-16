@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import './ShoppingCartTable.css';
 
-import {booksDeleted, booksIncreased} from '../../actions'
+import {booksDeleted, booksIncreased, booksDecreased} from '../../actions'
 
 const ShoppingCartTable = ({ items, total, onIncrease, onDecrease, onDelete }) => {
   const renderRow = (item, idx) => {
@@ -75,7 +75,7 @@ const mapDispatchToProps = (dispatch) => {
     },
 
     onDecrease: (id) => {
-      
+      dispatch(booksDecreased(id))
     },
 
     onDelete: (id) => {
