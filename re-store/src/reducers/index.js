@@ -63,7 +63,7 @@ const reducer = (state=initialState, action) => {
                 cartItems: items,
                 orderTotal: state.orderTotal - itemTotal
             }
-        case 'BOOKS_INCREASED':
+        case 'BOOKS_INCREASED': 
             let book = state.books.find(item => item.id === action.payload)
             return {
                 ...state,
