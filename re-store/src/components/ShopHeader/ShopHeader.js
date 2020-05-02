@@ -5,7 +5,6 @@ import {connect} from 'react-redux'
 import './ShopHeader.css';
 
 const ShopHeader = ({ numItems, total, ...props }) => {
-  console.log(props);
   
   return (
     <header className="shop-header row">
@@ -22,4 +21,13 @@ const ShopHeader = ({ numItems, total, ...props }) => {
   );
 };
 
-export default connect()(ShopHeader);
+function mapStateToProps(state) {
+  const quantity = state.cartItems.reduce((a, b) => a + b.count, 0)
+  
+  return {
+    numItems: quantity,
+    total: state.orderTotal
+  }
+}
+
+export default connect(mapStateToProps)(ShopHeader);
