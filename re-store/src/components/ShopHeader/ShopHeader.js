@@ -1,9 +1,12 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
 
 import './ShopHeader.css';
 
-const ShopHeader = ({ numItems, total }) => {
+const ShopHeader = ({ numItems, total, ...props }) => {
+  console.log(props);
+  
   return (
     <header className="shop-header row">
       <Link to="/">
@@ -19,4 +22,4 @@ const ShopHeader = ({ numItems, total }) => {
   );
 };
 
-export default ShopHeader;
+export default connect()(ShopHeader);
