@@ -11,14 +11,14 @@ const App = () => {
             <ShopHeader/>
             <Switch>
                 <Route
+                    path='/'
+                    component={HomePage}
+                    exact
+                />
+                <Route
                     path='/cart'
                     component={CartPage}
                 />
-                <Route
-                    path='/'
-                    component={HomePage}
-                />
-
             </Switch>
         </main>
     )
