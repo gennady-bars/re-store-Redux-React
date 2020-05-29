@@ -1,4 +1,4 @@
-# re-store React + Redux
+# re-store
 
 ### Это проект онлайн книжного магазина на React и Redux
 
